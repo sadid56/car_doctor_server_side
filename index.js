@@ -74,6 +74,12 @@ async function run() {
       })
       res.send({success: true})
     })
+    // remove log out to jwt token
+    app.post('/logOut', async(req, res)=>{
+      const body = req.body;
+      console.log('log out', body);
+      res.clearCookie('token',{maxAge: 0}).send({success: true})
+    })
 
 
 
